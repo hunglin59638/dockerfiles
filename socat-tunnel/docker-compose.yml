@@ -1,0 +1,14 @@
+version: '3'
+services:
+  socat:
+    image: hunglin59638/socat:$TAG
+    env_file:
+      - .env
+    environment:
+      - SERVER_IP=$SERVER_IP
+      - SERVER_PORT=$SERVER_PORT
+      - LOCAL_PORT=$LOCAL_PORT
+    restart: always
+    ports:
+      - $LOCAL_PORT:$LOCAL_PORT
+  
