@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    image: hunglin59638/hexo-blog:$TAG
+    env_file:
+      - .env
+    restart: always
+    user: ${USER_ID}:${GROUP_ID}
+    volumes:
+      - ${STORAGE_PATH}:/hexo
+    ports:
+      - ${HEXO_PORT}:4000
