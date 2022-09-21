@@ -1,0 +1,11 @@
+version: "2.1"
+services:
+  ncat:
+    image: hunglin59638/alpine-ncat:3.15
+    environment:
+      - SERVER_IP=${SERVER_IP}
+      - SERVER_PORT=${SERVER_PORT}
+      - LOCAL_PORT=${LOCAL_PORT}
+    ports:
+      - ${LOCAL_PORT}:${LOCAL_PORT}
+    restart: unless-stopped
