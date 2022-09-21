@@ -1,0 +1,17 @@
+services:
+  frps:
+    build: 
+      context: .
+    image: hunglin59638/frp:${TAG}
+    environment:
+      - FRP_MODE=frps
+      - TOKEN=${TOKEN}
+      - SERVER_ADDR=${SERVER_ADDR}
+      - SERVER_PORT=${SERVER_FRP_PORT}
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+      - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
